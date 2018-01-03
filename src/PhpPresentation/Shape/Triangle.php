@@ -9,7 +9,6 @@ namespace PhpOffice\PhpPresentation\Shape;
 use PhpOffice\PhpPresentation\AbstractShape;
 use PhpOffice\PhpPresentation\ComparableInterface;
 use PhpOffice\PhpPresentation\Style\Border;
-
 /**
  * Class Triangle
  * @package PhpOffice\PhpPresentation\Shape
@@ -37,7 +36,6 @@ class Triangle extends AbstractShape implements ComparableInterface
         $this->setHeight($toY - $fromY);
         $this->setRotation($rotation);
     }
-
     /**
      * Get hash code
      *
