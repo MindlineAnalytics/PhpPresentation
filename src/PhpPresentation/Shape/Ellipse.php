@@ -11,7 +11,6 @@ use PhpOffice\PhpPresentation\AbstractShape;
 use PhpOffice\PhpPresentation\ComparableInterface;
 use PhpOffice\PhpPresentation\Style\Border;
 
-
 class Ellipse extends AbstractShape implements ComparableInterface
 {
     /**
@@ -35,7 +34,6 @@ class Ellipse extends AbstractShape implements ComparableInterface
         $this->setRotation($rotation);
 
     }
-
     /**
      * Get hash code
      *
@@ -45,5 +43,4 @@ class Ellipse extends AbstractShape implements ComparableInterface
     {
         return md5($this->getBorder()->getLineStyle() . parent::getHashCode() . __CLASS__);
     }
-
 }
