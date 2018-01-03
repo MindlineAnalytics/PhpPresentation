@@ -32,7 +32,6 @@ class Ellipse extends AbstractShape implements ComparableInterface
         $this->setWidth($toX - $fromX);
         $this->setHeight($toY - $fromY);
         $this->setRotation($rotation);
-
     }
     /**
      * Get hash code
