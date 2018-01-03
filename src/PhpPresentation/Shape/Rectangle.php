@@ -47,5 +47,4 @@ class Rectangle extends AbstractShape implements ComparableInterface
     {
         return md5($this->getBorder()->getLineStyle() . parent::getHashCode() . __CLASS__);
     }
-
 }
