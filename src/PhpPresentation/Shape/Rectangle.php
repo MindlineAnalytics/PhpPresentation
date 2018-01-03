@@ -9,6 +9,7 @@ namespace PhpOffice\PhpPresentation\Shape;
 use PhpOffice\PhpPresentation\AbstractShape;
 use PhpOffice\PhpPresentation\ComparableInterface;
 use PhpOffice\PhpPresentation\Style\Border;
+
 /**
  * Class Rectangle
  * @package PhpOffice\PhpPresentation\Shape
