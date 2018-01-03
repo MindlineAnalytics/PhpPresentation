@@ -10,7 +10,6 @@ use PhpOffice\PhpPresentation\AbstractShape;
 use PhpOffice\PhpPresentation\ComparableInterface;
 use PhpOffice\PhpPresentation\Style\Border;
 
-
 /**
  * Class Triangle
  * @package PhpOffice\PhpPresentation\Shape
@@ -48,5 +47,4 @@ class Triangle extends AbstractShape implements ComparableInterface
     {
         return md5($this->getBorder()->getLineStyle() . parent::getHashCode() . __CLASS__);
     }
-
 }
