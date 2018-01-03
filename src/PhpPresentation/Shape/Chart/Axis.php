@@ -104,8 +104,10 @@ class Axis implements ComparableInterface
      * @var boolean
      */
     protected $isVisible = true;
-
-
+    
+    /**
+     * @var int
+     */
     protected $crossesAt=0;
 
     /**
