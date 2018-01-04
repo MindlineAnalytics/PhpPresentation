@@ -2310,15 +2310,10 @@ class PptCharts extends AbstractDecoratorWriter
             $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
             $objWriter->endElement();
         } else {
-            $objWriter->startElement('c:crossAx');
-            $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
+            $objWriter->startElement('c:crosses');
+            $objWriter->writeAttribute('val', 'autoZero');
             $objWriter->endElement();
         }
-        
-        // c:crosses
-        $objWriter->startElement('c:crosses');
-        $objWriter->writeAttribute('val', 'autoZero');
-        $objWriter->endElement();
 
         if ($typeAxis == Chart\Axis::AXIS_X) {
             // c:lblAlgn
