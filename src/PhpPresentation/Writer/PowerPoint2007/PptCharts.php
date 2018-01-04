@@ -1,5 +1,6 @@
 <?php
 namespace PhpOffice\PhpPresentation\Writer\PowerPoint2007;
+
 use PhpOffice\Common\Drawing as CommonDrawing;
 use PhpOffice\Common\XMLWriter;
 use PhpOffice\PhpPresentation\PhpPresentation;
@@ -18,6 +19,7 @@ use PhpOffice\PhpPresentation\Shape\Chart\Type\Pie3D;
 use PhpOffice\PhpPresentation\Shape\Chart\Type\Scatter;
 use PhpOffice\PhpPresentation\Style\Border;
 use PhpOffice\PhpPresentation\Style\Fill;
+
 class PptCharts extends AbstractDecoratorWriter
 {
     /**
@@ -1783,7 +1785,7 @@ class PptCharts extends AbstractDecoratorWriter
         }
         // c:numFmt
         $objWriter->startElement('c:numFmt');
-        $objWriter->writeAttribute('formatCode',$oAxis->getFormatCode());
+        $objWriter->writeAttribute('formatCode', $oAxis->getFormatCode());
         $objWriter->writeAttribute('sourceLinked', '1');
         $objWriter->endElement();
         // c:majorTickMark
