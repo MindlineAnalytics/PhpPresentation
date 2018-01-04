@@ -1804,6 +1804,7 @@ class PptCharts extends AbstractDecoratorWriter
         $objWriter->startElement('c:spPr');
 
         $objWriter->startElement('a:ln');
+        $objWriter->writeAttribute("w", "25400");
 
         // Outline
         $this->writeOutline($objWriter, $oAxis->getOutline());
