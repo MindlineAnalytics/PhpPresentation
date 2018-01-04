@@ -105,7 +105,7 @@ class PptCharts extends AbstractDecoratorWriter
 
         // c:hPercent
         $hPercent = $chart->getView3D()->getHeightPercent();
-        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent );
+        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent);
 
         // c:rotY
         $objWriter->startElement('c:rotY');
@@ -2303,15 +2303,13 @@ class PptCharts extends AbstractDecoratorWriter
         $this->writeOutline($objWriter, $oAxis->getOutline());
         // ##c:spPr
         $objWriter->endElement();
-
-         // c:crossesAt
-        if ($typeChart instanceof scatter){
-            
+        
+        if ($typeChart instanceof scatter) {
+               // c:crossesAt
             $objWriter->startElement('c:crossesAt');
             $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
             $objWriter->endElement();
-        }
-        
+        } 
         else {
             $objWriter->startElement('c:crosses');
             $objWriter->writeAttribute('val', 'autoZero');
@@ -2326,7 +2324,7 @@ class PptCharts extends AbstractDecoratorWriter
 
             // c:lblOffset
             $objWriter->startElement('c:lblOffset');
-            $objWriter->writeAttribute('val', '100%');
+            $objWriter->writeAttribute('val', '100');
             $objWriter->endElement();
         }
 
