@@ -1667,7 +1667,7 @@ class PptCharts extends AbstractDecoratorWriter
             return;
         }
         if ($typeAxis == Chart\Axis::AXIS_X) {
-            $mainElement = 'c:valAx';
+            $mainElement = 'c:catAx';
             $axIdVal = '52743552';
             $axPosVal = 'b';
             $crossAxVal = '52749440';
