@@ -1830,7 +1830,7 @@ class PptCharts extends AbstractDecoratorWriter
             $objWriter->endElement();
             // c:lblOffset
             $objWriter->startElement('c:lblOffset');
-            $objWriter->writeAttribute('val', '100%');
+            $objWriter->writeAttribute('val', '100');
             $objWriter->endElement();
         }
         if ($typeAxis == Chart\Axis::AXIS_Y) {
