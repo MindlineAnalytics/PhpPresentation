@@ -105,7 +105,7 @@ class PptCharts extends AbstractDecoratorWriter
 
         // c:hPercent
         $hPercent = $chart->getView3D()->getHeightPercent();
-        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent . '%');
+        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent );
 
         // c:rotY
         $objWriter->startElement('c:rotY');
@@ -2304,15 +2304,17 @@ class PptCharts extends AbstractDecoratorWriter
         // ##c:spPr
         $objWriter->endElement();
 
-        // c:crossAx
-        $objWriter->startElement('c:crossAx');
-        $objWriter->writeAttribute('val', $crossAxVal);
-        $objWriter->endElement();
-
-        // c:crosses
-        $objWriter->startElement('c:crosses');
-        $objWriter->writeAttribute('val', 'autoZero');
-        $objWriter->endElement();
+         // c:crossesAt
+        if($typeChart instanceof scatter){
+            $objWriter->startElement('c:crossesAt');
+            $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
+            $objWriter->endElement();
+        }
+        else {
+            $objWriter->startElement('c:crosses');
+            $objWriter->writeAttribute('val', 'autoZero');
+            $objWriter->endElement();
+        }
 
         if ($typeAxis == Chart\Axis::AXIS_X) {
             // c:lblAlgn
