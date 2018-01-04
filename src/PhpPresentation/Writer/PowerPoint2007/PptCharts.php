@@ -1812,7 +1812,7 @@ class PptCharts extends AbstractDecoratorWriter
         $objWriter->writeAttribute('val', $crossAxVal);
         $objWriter->endElement();
        
-         if ($typeChart instanceof scatter) {
+        if ($typeChart instanceof scatter) {
             // c:crossesAt
             $objWriter->startElement('c:crossesAt');
             $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
