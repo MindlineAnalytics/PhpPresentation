@@ -153,18 +153,18 @@ class PptChartsTest extends PhpPresentationTestCase
         $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
         $element = '/c:chartSpace/c:chart/c:plotArea/c:catAx/c:spPr/a:ln';
         $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
-        //$this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'w', Drawing::pixelsToEmu(Drawing::pointsToPixels($expectedWidthX)));
-        //$element = '/c:chartSpace/c:chart/c:plotArea/c:catAx/c:spPr/a:ln/a:solidFill/a:srgbClr';
-        //$this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
-        //$this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'val', $expectedColorX);
+        $this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'w', Drawing::pixelsToEmu(Drawing::pointsToPixels($expectedWidthX)));
+        $element = '/c:chartSpace/c:chart/c:plotArea/c:catAx/c:spPr/a:ln/a:solidFill/a:srgbClr';
+        $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
+        $this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'val', $expectedColorX);
         $element = '/c:chartSpace/c:chart/c:plotArea/c:valAx/c:spPr';
         $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
         $element = '/c:chartSpace/c:chart/c:plotArea/c:valAx/c:spPr/a:ln';
         $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
-        //$this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'w', Drawing::pixelsToEmu(Drawing::pointsToPixels($expectedWidthY)));
+        $this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'w', Drawing::pixelsToEmu(Drawing::pointsToPixels($expectedWidthY)));
         $element = '/c:chartSpace/c:chart/c:plotArea/c:valAx/c:spPr/a:ln/a:solidFill/a:srgbClr';
-        //$this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
-        //$this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'val', $expectedColorY);
+        $this->assertZipXmlElementExists('ppt/charts/' . $oShape->getIndexedFilename(), $element);
+        $this->assertZipXmlAttributeEquals('ppt/charts/' . $oShape->getIndexedFilename(), $element, 'val', $expectedColorY);
     }
 
     public function testAxisVisibilityFalse()
