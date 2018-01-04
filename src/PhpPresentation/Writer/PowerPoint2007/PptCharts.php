@@ -1,4 +1,5 @@
 <?php
+
 namespace PhpOffice\PhpPresentation\Writer\PowerPoint2007;
 
 use PhpOffice\Common\Drawing as CommonDrawing;
@@ -36,7 +37,7 @@ class PptCharts extends AbstractDecoratorWriter
                     $this->getZip()->addFromString('ppt/charts/_rels/' . $shape->getIndexedFilename() . '.rels', $this->writeChartRelationships($shape));
                     $pFilename = tempnam(sys_get_temp_dir(), 'PHPExcel');
                     $this->getZip()->addFromString('ppt/embeddings/' . $shape->getIndexedFilename() . '.xlsx', $this->writeSpreadsheet($this->getPresentation(), $shape, $pFilename . '.xlsx'));
-
+                    
                     // remove temp file
                     if (@unlink($pFilename) === false) {
                         throw new \Exception('The file ' . $pFilename . ' could not removed.');
@@ -91,7 +92,7 @@ class PptCharts extends AbstractDecoratorWriter
         $objWriter->endElement();
         // c:hPercent
         $hPercent = $chart->getView3D()->getHeightPercent();
-        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent);
+        $objWriter->writeElementIf($hPercent != null, 'c:hPercent', 'val', $hPercent . '%');
         // c:rotY
         $objWriter->startElement('c:rotY');
         $objWriter->writeAttribute('val', $chart->getView3D()->getRotationY());
@@ -1802,30 +1803,18 @@ class PptCharts extends AbstractDecoratorWriter
         $objWriter->endElement();
         // c:spPr
         $objWriter->startElement('c:spPr');
-
-        $objWriter->startElement('a:ln');
-        $objWriter->writeAttribute("w", CommonDrawing::pixelsToEmu(CommonDrawing::pointsToPixels(2)));
-
         // Outline
         $this->writeOutline($objWriter, $oAxis->getOutline());
         // ##c:spPr
         $objWriter->endElement();
-        $objWriter->endElement();
-
+        // c:crossAx
         $objWriter->startElement('c:crossAx');
         $objWriter->writeAttribute('val', $crossAxVal);
         $objWriter->endElement();
-
-        if ($typeChart instanceof scatter) {
-            // c:crossesAt
-            $objWriter->startElement('c:crossesAt');
-            $objWriter->writeAttribute('val', $oAxis->getCrossesAt());
-            $objWriter->endElement();
-        } else {
-            $objWriter->startElement('c:crosses');
-            $objWriter->writeAttribute('val', 'autoZero');
-            $objWriter->endElement();
-        }
+        // c:crosses
+        $objWriter->startElement('c:crosses');
+        $objWriter->writeAttribute('val', 'autoZero');
+        $objWriter->endElement();
         if ($typeAxis == Chart\Axis::AXIS_X) {
             // c:lblAlgn
             $objWriter->startElement('c:lblAlgn');
@@ -1833,7 +1822,7 @@ class PptCharts extends AbstractDecoratorWriter
             $objWriter->endElement();
             // c:lblOffset
             $objWriter->startElement('c:lblOffset');
-            $objWriter->writeAttribute('val', '100');
+            $objWriter->writeAttribute('val', '100%');
             $objWriter->endElement();
         }
         if ($typeAxis == Chart\Axis::AXIS_Y) {
