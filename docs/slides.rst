@@ -27,3 +27,29 @@ You can define it with the method ``setIsVisible``.
 	$oSlide = $oPHPPresentation->createSlide();
 	$oSlide->setIsVisible(false);
 	var_dump($oSlide->isVisible());
+
+Master Slides
+-------------
+
+We can make one or more than one ``master`` slides for presentations. Slide layout can also be set using the sample code.
+
+.. code-block:: php
+
+    //Master Slide 1
+    $oMasterSlide1 = $objPhpPowerPoint->getAllMasterSlides()[0];
+    $shape = $oMasterSlide1->createDrawingShape();
+
+    //Master Slide 2
+    $oMasterSlide2 = $objPhpPowerPoint->getAllMasterSlides()[1];
+    $shape = $oMasterSlide2->createDrawingShape();
+
+By default Master 1 is always default, and to apply Master 2
+
+.. code-block:: php
+
+    $oSlideLayout = $oMasterSlide2->createSlideLayout();
+
+    //Slide in which you want to apply Master 2
+
+    $slide = $objPhpPowerPoint->createSlide();
+    $slide->setSlideLayout($oSlideLayout);
